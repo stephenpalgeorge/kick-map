@@ -1,6 +1,20 @@
+$font-family--sans-serif: 'Open Sans', sans-serif;
+
 $zindex--base: 400;
 $zindex--map: $zindex--base;
 $zindex--foreground: 450;
 
 @import '~leaflet/dist/leaflet.css';
 @import './components/index.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+
+h1, h2, h3,
+h4, h5, h6 {
+  font-family: $font-family--sans-serif;
+}
+
+h1, h2 { font-weight: 800; }
+h3, h4 { font-weight: 700; }
+h5, h6 { font-weight: 600; }
