@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Dispatch, SetStateAction } from 'react';
 import { GeoJSON, Map, TileLayer } from 'react-leaflet';
 import { LatLngTuple, Path } from 'leaflet';
 
@@ -7,6 +7,7 @@ interface IPolygonMapProps {
   mapCenter?: LatLngTuple,
   mapData: any[],
   mapZoom?: number,
+  setDataKey: Dispatch<SetStateAction<string>>,
   tilesUrl: string
 }
 
@@ -15,6 +16,7 @@ const PolygonMap : React.FC<IPolygonMapProps> = ({
   mapCenter,
   mapData,
   mapZoom,
+  setDataKey,
   tilesUrl
 } : IPolygonMapProps) => {
   const [label, setLabel] = useState<string>('');
@@ -42,6 +44,9 @@ const PolygonMap : React.FC<IPolygonMapProps> = ({
             layer.on('mouseout', () => {
               setLabel('');
               return layer.setStyle({ fillOpacity: .4 })
+            });
+            layer.on({
+              click: () => setDataKey(feature.properties.name)
             });
           }}
         />
