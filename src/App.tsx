@@ -13,6 +13,7 @@ const App = () => {
   return (
     <div className="App">
       <PolygonMap
+        dataKey={ dataKey }
         highlightColor="#D91F2D"
         mapCenter={ mapCenter }
         mapData={ LONDON_BOROUGHS }
@@ -22,7 +23,12 @@ const App = () => {
         setMapZoom={ setMapZoom }
         tilesUrl="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
       />
-      <Card activeDataKey={dataKey} />
+      <Card
+        activeDataKey={ dataKey }
+        setActiveDataKey={ setDataKey }
+        setMapCenter={ setMapCenter }
+        setMapZoom={ setMapZoom }
+      />
     </div>
   );
 }

@@ -1,3 +1,21 @@
 .card {
+  position: relative;
+  transform: translateY(-150%) scaleY(0);
+  z-index: $zindex--foreground + 10;
+  
+  width: 50%;
+  margin: 0 auto;
+  padding: 1.25rem;
+  
+  border-radius: .25rem;
+  background-color: #fff;
+  box-shadow: 0 .25rem .5rem 0 rgba(0, 0, 0, .42);
 
+  opacity: 0;
+  transition: opacity .2s ease-out, transform .2s ease-out;
+  transform-origin: top center;
+  &.has-content {
+    opacity: 1;
+    transform: translateY(-150%) scaleY(1);
+  }
 }

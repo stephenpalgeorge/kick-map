@@ -3,6 +3,7 @@ import { GeoJSON, Map, TileLayer } from 'react-leaflet';
 import { LatLngTuple, Path } from 'leaflet';
 
 interface IPolygonMapProps {
+  dataKey?: string,
   highlightColor?: string,
   mapCenter?: LatLngTuple,
   mapData: any[],
